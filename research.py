@@ -37,7 +37,7 @@ Keep everything factual.
 """
 
     response = client.chat.completions.create(
-        model="openai/gpt-4.1-mini",
+        model="openai/gpt-4o-mini",
         messages=[
             {
                 "role":"user",
