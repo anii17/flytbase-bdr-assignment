@@ -22,9 +22,6 @@ This application automates outbound prospecting for FlytBase by:
 
 if st.button("Run Agent"):
 
-    st.write("Key loaded:", OPENROUTER_API_KEY is not None)
-    st.write("Key prefix:", OPENROUTER_API_KEY[:10] if OPENROUTER_API_KEY else "None")
-
     with st.spinner("Running AI workflow... This may take a few minutes."):
 
         run_pipeline()
