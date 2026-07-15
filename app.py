@@ -25,6 +25,14 @@ if st.button("Run Agent"):
 
     with st.spinner("Running AI workflow... This may take a few minutes."):
 
+       from config import OPENROUTER_API_KEY
+
+import streamlit as st
+
+st.write("Key loaded:", OPENROUTER_API_KEY is not None)
+st.write("Key prefix:", OPENROUTER_API_KEY[:10] if OPENROUTER_API_KEY else "None")
+
+       
         run_pipeline()
 
     st.success("Workflow completed successfully!")
