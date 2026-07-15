@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 from main import run_pipeline
+from config import OPENROUTER_API_KEY
 
 st.set_page_config(
     page_title="FlytBase AI Outbound Agent",
@@ -10,29 +11,22 @@ st.set_page_config(
 
 st.title("🚁 FlytBase AI Outbound Agent")
 
-st.write(
-    """
+st.write("""
 This application automates outbound prospecting for FlytBase by:
 
 - Identifying enterprise mining companies
 - Finding relevant operations decision-makers
 - Researching each company
 - Generating personalized outbound emails
-"""
-)
+""")
 
 if st.button("Run Agent"):
 
+    st.write("Key loaded:", OPENROUTER_API_KEY is not None)
+    st.write("Key prefix:", OPENROUTER_API_KEY[:10] if OPENROUTER_API_KEY else "None")
+
     with st.spinner("Running AI workflow... This may take a few minutes."):
 
-       from config import OPENROUTER_API_KEY
-
-import streamlit as st
-
-st.write("Key loaded:", OPENROUTER_API_KEY is not None)
-st.write("Key prefix:", OPENROUTER_API_KEY[:10] if OPENROUTER_API_KEY else "None")
-
-       
         run_pipeline()
 
     st.success("Workflow completed successfully!")
